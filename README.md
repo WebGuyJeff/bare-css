@@ -21,7 +21,7 @@ I find myself stuck between expansive libraries which have done all the fun stuf
  - No support for elements depracated >= 12 months.
  - Support for core browsers, currently: Chrome/Edge, Firefox, Opera and Safari.
  - No external dependencies e.g. fonts.
- - Base elements are sctrictly greyscale.
+ - Base elements are strictly greyscale.
  - Colours only used when indicative, e.g. [alerts](http://www-db.deis.unibo.it/courses/TW/DOCS/w3schools/w3css/w3css_alerts.asp.html).
 
 #### Feedback 👍👎
