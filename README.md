@@ -16,7 +16,7 @@ I find myself stuck between expansive libraries which have done all the fun stuf
  - Styles which could be used as a finished (albeit very plain) theme.
  - A good starting point for new projects.
 
-#### Guidelines 👮‍♂
+### Guidelines 👮‍♂
  - Strictly no classes.
  - No support for elements depracated >= 12 months.
  - Support for core browsers, currently: Chrome/Edge, Firefox, Opera and Safari.
@@ -27,6 +27,6 @@ I find myself stuck between expansive libraries which have done all the fun stuf
 #### Feedback 👍👎
 If you feel something is missing which should be included at this level of 'bareness' or if you find something that's simply 💩, I welcome all input. Additionally, if you use it and find any of it useful, ping me some ❤.
 
-##### License
+#### License
 GNU GENERAL PUBLIC LICENSE Version 3
 (do what you want 🙂)
