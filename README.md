@@ -26,3 +26,7 @@ I find myself stuck between expansive libraries which have done all the fun stuf
 
 #### Feedback 👍👎
 If you feel something is missing which should be included at this level of 'bareness' or if you find something that's simply 💩, I welcome all input. Additionally, if you use it and find any of it useful, ping me some ❤.
+
+##### License
+GNU GENERAL PUBLIC LICENSE Version 3
+(do what you want 🙂)
