@@ -1,4 +1,4 @@
-# Bare CSS
+# Bare CSS 🍑
 
 This is a basic CSS stylesheet, on which to build complete themes. The intended purpose, is to provide a solid jumping-off point which is more developed than the usual skeleton starters, minimilising the amount of creative grind required to get HTML visualised. It's comprehensive enough to be used as a simple theme, but will need more work as soon as more complex components are included in the project. It aims to be not lacking, nor suffocating.
 
