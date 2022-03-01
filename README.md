@@ -4,7 +4,7 @@ This is a basic CSS stylesheet, on which to build complete themes. The intended 
 
 ## Why?
 
-- I find myself stuck between expansive libraries which have done all the fun stuff already (bootstrap), and starters which don't seem to add much to the already barebones styles aplied by the browser. On top of this, I rarely find CSS written in a way that makes sense to my brain, so rather than chewing through typography, buttons and box/border style choices each time I start a project, I thought I'd get organised with my own 'Bare CSS'.
+I find myself stuck between expansive libraries which have done all the fun stuff already (bootstrap), and starters which don't seem to add much to the already barebones styles aplied by the browser. On top of this, I rarely find CSS written in a way that makes sense to my brain, so rather than chewing through typography, buttons and box/border style choices each time I start a project, I thought I'd get organised with my own 'Bare CSS'.
 
 ### What this is not:
  - A CSS reset
