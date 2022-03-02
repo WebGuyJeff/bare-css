@@ -17,7 +17,7 @@ I find myself stuck between expansive libraries which have done all the fun stuf
  - A good starting point for new projects.
 
 ### Guidelines 👮‍♂
- - Strictly no classes.
+ - Classnames should be 'project-agnostic'.
  - No support for elements depracated >= 12 months.
  - Support for core browsers, currently: Chrome/Edge, Firefox, Opera and Safari.
  - No external dependencies e.g. fonts.
