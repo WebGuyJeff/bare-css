@@ -122,9 +122,19 @@ Interactive elements
 html {
 	--black: #262626;
 	--white: #fff;
+	--grey: #ccc;
 
+	--indicate-emphasis: var(--black);
+	--indicate-go: green;
+	--indicate-stop: red;
+	--indicate-ready: yellow;
+
+
+
+	--box-radius: 0.4em;
 
 	font-family: arial, sans-serif;
+	font-size: 1rem;
 	/* fluid root units (14px @ 768 - 18px @ 1920) */
 	/* font-size: clamp(14px, calc(0.875rem + ( (1vw - 7.68px) * 0.3472) ), 18px); */
 	background-color: var(--white);
@@ -145,6 +155,15 @@ body {
 
 /* --------------------------------------------------- ## Content sectioning -*/
 
+
+header {
+	margin-bottom: 1.5em;
+}
+footer {
+	margin-top: 1.5em;
+}
+
+
 @media screen and (min-width: 40rem) {
 	body > header,
 	body > main,
@@ -160,7 +179,7 @@ body {
 	padding: 1.5em;
 }
 
-.container img {
+img {
 	max-width: 100%;
 }
 
@@ -279,32 +298,7 @@ blockquote {
 	border-left: 7px solid rgba(0, 0, 0, 0.1);
 }
 
-sub,
-sup {
-	color: #828282;
-}
 
-code,
-pre,
-kbd {
-	font-size: 1em;
-}
-
-pre {
-	background-color: #eeeeee;
-	padding: 19px; /*19px*/
-}
-
-kbd {
-	color: var(--black);
-	text-shadow: 0 1px 0 white; /*0 1px 0*/
-	background-color: #f7f7f7;
-	padding: 5px; /*5px*/
-	border: 1px solid #cccccc; /*1px*/
-	border-radius: 7px; /*7px*/
-	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px #fafafa inset, 0 0 0 1px white inset;
-	margin: 0 1px; /*0 1px*/
-}
 
 p,
 ul,
@@ -338,36 +332,72 @@ blockquote> :last-child,
 	margin-block-end: 0;
 }
 
+sub,
+sup {
+	color: #828282;
+}
 
 
 
 
 
-samp,
-code,
+
 pre {
-	font-size: 1em;
+    border-radius: var(--box-radius);
+	padding: 0.8em;
 	overflow-x: auto;
 }
 
-figure,
 samp,
 code,
 pre {
-	background-color: #eeeeee;
+	background-color: var(--black);
+	color: var(--white);
 }
+
+samp,
+code,
+pre,
+kbd {
+	line-height: 1.4;
+	font-size: 1rem;
+}
+
+kbd {
+    margin: 0 1px;
+    border: 1px solid #cccccc;
+    border-radius: var(--box-radius);
+    box-shadow: 0 1px 0 rgb(0 0 0 / 20%), 0 0 0 1px #fafafa inset, 0 0 0 1px white inset;
+    background-color: #f7f7f7;
+    padding: 0.2em 0.4em;
+    text-shadow: 0 1px 0 white;
+    color: var(--black);
+}
+
+
+
+
+
+
 
 figure {
-	padding-block-start: 1em;
-	padding-block-end: 1em;
-	padding-inline-start: 40px;
-	padding-inline-end: 40px;
-
-	margin-block-start: 0;
-	margin-block-end: 0;
-	margin-inline-start: 0;
-	margin-inline-end: 0;
+    background-color: var(--grey);
+    border-radius: var(--box-radius);
+    overflow: hidden;
+    padding: 0;
+    margin: 1em 2em;
 }
+
+figure figcaption {
+    margin: 0.6em 0.4em;
+    text-align: center;
+}
+
+
+
+
+
+
 
 
 
@@ -380,32 +410,92 @@ table caption {
 	font-size: 0.875em;
 	margin-bottom: 0.6em;
 }
-
 table {
     border-spacing: 0;
     width: 100%;
 	width: fit-content;
+	line-height: 1.4;
 }
-
-    th {
+	thead tr {
         background: var(--black);
         vertical-align: middle;
         text-align: left;
         text-transform: capitalize;
         color: var(--white);
-        font-size: 1.2em;
-        line-height: 2;
     }
-
-	th, td {
-		padding-left: 1em;
-		padding-right: 1em;
+	tbody > tr:nth-child(even) {
+		background-color: #f7f7f7;
 	}
+	tfoot tr {
+		background: var(--grey);
+		font-weight: bold;
+	}
+		th,
+		td {
+			padding-left: 1em;
+			padding-top: 0.4em;
+			padding-bottom: 0.4em;
+			text-align: start;
+		}
+		thead th {
+			padding-top: 0.8em;
+			padding-bottom: 0.8em;
+		}
+		th:last-child,
+		td:last-child {
+			padding-right: 1em;
+		}
+		thead tr > *:first-child {
+			border-top-left-radius: var(--box-radius);
+		}
+		thead tr > *:last-child {
+			border-top-right-radius: var(--box-radius);
+		}
+		tfoot tr > *:first-child {
+			border-bottom-left-radius: var(--box-radius);
+		}
+		tfoot tr > *:last-child {
+			border-bottom-right-radius: var(--box-radius);
+		}
 
-    tbody {
-        line-height: 2;
-    }
 
-	    tr:nth-child(2n+1) {
-	        background: #f3f3f3;
-	    }
+/* ---------------------------------------------------------------- ## Forms -*/
+
+
+button,
+input[type="submit"] {
+    margin: 0.4em;
+	border: none;
+    border-radius: var(--box-radius);
+    padding: 0;
+    font-size: inherit;
+    font-weight: bold;
+	cursor: pointer;
+}
+button > span {
+    display: block;
+    border-radius: var(--box-radius);
+	background-color: var(--grey);
+    padding: 0.6em;
+	transition: transform 0.1s ease-in-out, 
+				box-shadow 0.1s ease-in-out;
+}
+.button-emphasis > span {
+	background-color: var(--indicate-emphasis);
+	color: var(--white);
+}
+.button-go > span  {
+	background-color: var(--indicate-go);
+	color: var(--white);
+}
+.button-stop > span  {
+	background-color: var(--indicate-stop);
+	color: var(--white);
+}
+.button-ready > span  {
+	background-color: var(--indicate-ready);
+}
+button:hover > span {
+    transform: translate(-0.4em, -0.4em);
+    box-shadow: 0.4em 0.4em 0 0 #000;
+}
