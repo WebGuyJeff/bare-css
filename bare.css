@@ -115,6 +115,12 @@ Interactive elements
 	<dialog>
 	<summary>
 
+Global Modifiers
+	Indicate Colours
+Icons
+	Arrow Down
+
+
 */
 
 /* ----------------------------------------------------------------- ## Root -*/
@@ -153,6 +159,7 @@ body {
 	height: 100%;
 }
 
+
 /* --------------------------------------------------- ## Content sectioning -*/
 
 
@@ -190,59 +197,52 @@ body > footer {
 	border-top: solid 0.4em var(--black);
 }
 
-nav li,
-header li,
-footer li {
-	display: inline-block;
-}
 
-nav a,
-header a,
-footer a {
-	margin: 0 0.4em;
-}
-
-nav > *:first-child,
-nav > *:first-child > *:first-child,
-nav > *:first-child > *:first-child > *:first-child,
-header > ul > li:first-child,
-header > ol > li:first-child,
-footer > ul > li:first-child,
-footer > ol > li:first-child
-header > ul > li:first-child > a,
-header > ol > li:first-child > a,
-footer > ul > li:first-child > a,
-footer > ol > li:first-child > a {
-	margin-inline-start: 0;
-}
-
-nav ul,
-header ul,
-footer ul,
-nav ol,
-header ol,
-footer ol  {
-	margin-block-start: 1em;
-	margin-block-end: 1em;
-	margin-inline-start: 1em;
-	margin-inline-end: 1em;
-	padding-inline-start: 0;
-}
-
-nav,
-nav ul,
-header ul,
-footer ul,
-nav ol,
-header ol,
-footer ol  {
+nav {
 	display: flex;
-	flex-flow: row wrap;
 	justify-content: flex-start;
 }
+	.nav-row {
+		flex-flow: row wrap;
+	}
+	.nav-column {
+		flex-flow: column;
+		width: fit-content;
+	}
+
+.nav-bar {}
+.nav-links {}
 
 
 
+.dropdown {
+    display: block;
+    float: left;
+    cursor: pointer;
+}
+	.dropdown_content {
+		display: none;
+		position: absolute;
+		z-index: 1;
+		margin: 0;
+		border-radius: var(--box-radius);
+		background-color: var(--grey);
+		cursor: auto;
+		padding: 0;
+		min-width: 10em;
+	}
+	.dropdown:hover .dropdown_content {
+		display: flex;
+		flex-flow: column;
+		box-shadow: -0.2em 0.2em 0 0 #000;
+	}
+		nav .dropdown_content a {
+			background-color: var(--white);
+		}
+
+		.dropdown:hover .arrow-down {
+			transform: rotate(90deg);
+		}
 
 
 
@@ -463,39 +463,65 @@ table {
 
 
 button,
+.button,
+.nav-buttons a,
 input[type="submit"] {
+    display: inline-block;
     margin: 0.4em;
 	border: none;
     border-radius: var(--box-radius);
+	background-color: var(--grey);
+	cursor: pointer;
     padding: 0;
+    padding: 0.6em;
+	text-decoration: none;
+	color: var(--black);
     font-size: inherit;
     font-weight: bold;
-	cursor: pointer;
-}
-button > span {
-    display: block;
-    border-radius: var(--box-radius);
-	background-color: var(--grey);
-    padding: 0.6em;
 	transition: transform 0.1s ease-in-out, 
 				box-shadow 0.1s ease-in-out;
 }
-.button-emphasis > span {
+	button:hover,
+	.button:hover,
+	.nav-buttons a:hover,
+	input[type="submit"]:hover,
+	.dropdown:hover > button {
+		transform: translate(0.2em, -0.2em);
+		box-shadow: -0.2em 0.2em 0 0 #000;
+	}
+	button:active,
+	.button:active,
+	.nav-buttons a:active,
+	input[type="submit"]:active {
+		transform: translate(0, 0);
+		box-shadow: 0 0 0 0 #000;
+	}
+
+
+/* ----------------------------------------------------- ## Global Modifiers -*/
+
+
+.indicate-emphasis {
 	background-color: var(--indicate-emphasis);
 	color: var(--white);
 }
-.button-go > span  {
+.indicate-go  {
 	background-color: var(--indicate-go);
 	color: var(--white);
 }
-.button-stop > span  {
+.indicate-stop  {
 	background-color: var(--indicate-stop);
 	color: var(--white);
 }
-.button-ready > span  {
+.indicate-ready  {
 	background-color: var(--indicate-ready);
+	color: var(--black);
 }
-button:hover > span {
-    transform: translate(-0.4em, -0.4em);
-    box-shadow: 0.4em 0.4em 0 0 #000;
+
+
+/* ---------------------------------------------------------------- ## Icons -*/
+
+
+.arrow-down {
+	transition: transform 0.1s ease-in-out;
 }

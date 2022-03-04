@@ -3,29 +3,37 @@
 
 <head>
 	<meta charset="utf-8">
-	<!-- Set the title of your site here -->
-	<title> HTML Sample </title>
+	<title>Bare CSS Sample HTML</title>
 	<meta name="author" content="bigupjeff">
 	<meta name="description" content="Sample HTML5 patterns">
-	<!-- Link to your stylesheet here -->
 	<link rel="stylesheet" href="bare.css">
-	<link rel="stylesheet" href="/path/to/styles/default.min.css">
 </head>
 
 <body>
 	<header>
 		<div class="container">
 			<a href="" title="Site title"></a>
-			<h1 class="header">Basic CSS components</h1>
+				<h1 class="header">Basic CSS components</h1>
 			</a>
-			<nav>
-				<ul>
-					<li> <a href="#Headings" title="Headings">Headings</a> </li>
-					<li> <a href="#" title="Links">Links</a> </li>
-					<li> <a href="#" title="Lists">Lists</a> </li>
-					<li> <a href="#" title="Menu">Contact</a> </li>
-					<li> <a href="#" title="Careers">Careers</a> </li>
-				</ul>
+			<nav class="nav-buttons nav-row">
+				<a href="#Headings" title="Headings">Headings</a>
+				<a href="#" title="Links">Links</a>
+				<a href="#" title="Lists">Lists</a>
+				<a href="#" title="Menu">Contact</a>
+				<a href="#" title="Careers">Careers</a>
+				<div class="dropdown">
+					<button class="button" title="More">
+						More
+						<svg class="arrow-down" height="8" width="12">
+							<polygon fill="currentColor" stroke="currentColor" stroke-width="1px" stroke-linejoin="round" points="0,0 6,8 12,0" />
+						</svg>
+					</button>     
+					<div class="dropdown_content">
+						<a href="#">Merchandise</a>
+						<a href="#">Extras</a>
+						<a href="#">Media</a>
+					</div>
+				</div>
 			</nav>
 		</div>
 	</header>
@@ -34,8 +42,6 @@
 		<div class="container">
 			<section id="Headings">
 				<h1>Headings &amp; Copy</h1>
-
-				<h1>First Header h1</h1>
 				<p>
 					At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
 					praesentium voluptatum deleniti atque corrupti quos.
@@ -221,12 +227,14 @@
 
 			<section>
 				<h1>Buttons</h1>
-				<button><span>Base button</span></button>
-				<button class="button-emphasis"><span>button-emphasis</span></button>
-				<button class="button-go"><span>button-go</span></button>
-				<button class="button-stop"><span>button-stop</span></button>
-				<button class="button-ready"><span>button-ready</span></button>
+				<button>Base button</button>
+				<button class="button indicate-emphasis">button-emphasis</button>
+				<button class="button indicate-go">button-go</button>
+				<button class="button indicate-stop">button-stop</button>
+				<button class="button indicate-ready">button-ready</button>
 			</section>
+
+
 
 			<hr />
 
@@ -466,34 +474,18 @@ Highlight the CLI text and press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kb
 	<footer>
 		<div class="container">
 			<h1>Footer</h1>
-			<ul>
-				<li>
-					<a href="#">Home</a>
-				</li>
-				<li>
-					<a href="#">Contact</a>
-				</li>
-				<li>
-					<a href="#">Jobs</a>
-				</li>
-			</ul>
-			<ul>
-				<li>
-					<a href="http://twitter.com/" title=" on Twitter">Twitter</a>
-				</li>
-				<li>
-					<a href="http://pinterest.com/" title=" on Pinterest">Pinterest</a>
-				</li>
-				<li>
-					<a href="http://instagram.com/" title=" on Instagram">Instagram</a>
-				</li>
-				<li>
-					<a href="http://dribbbble.com/" title=" on Dribbble">Dribbble</a>
-				</li>
-				<li>
-					<a href="http://github.com/" title=" on Github">Github</a>
-				</li>
-			</ul>
+			<nav class="nav-buttons nav-column">
+				<a href="#">Home</a>
+				<a href="#">Contact</a>
+				<a href="#">Jobs</a>
+			</nav>
+			<nav class="nav-buttons nav-column">
+				<a href="http://twitter.com/" title=" on Twitter">Twitter</a>
+				<a href="http://pinterest.com/" title=" on Pinterest">Pinterest</a>
+				<a href="http://instagram.com/" title=" on Instagram">Instagram</a>
+				<a href="http://dribbbble.com/" title=" on Dribbble">Dribbble</a>
+				<a href="http://github.com/" title=" on Github">Github</a>
+			</nav>
 			<small>© 2014 Some company name</small>
 			<address>email@email.com</address>
 		</div>
