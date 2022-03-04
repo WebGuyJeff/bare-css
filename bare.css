@@ -129,6 +129,7 @@ html {
 	--black: #262626;
 	--white: #fff;
 	--grey: #ccc;
+	--lightGrey: #eee;
 
 	--indicate-emphasis: var(--black);
 	--indicate-go: green;
@@ -162,7 +163,11 @@ body {
 
 /* --------------------------------------------------- ## Content sectioning -*/
 
-
+header,
+footer,
+body {
+	background-color: var(--white);
+}
 header {
 	margin-bottom: 1.5em;
 }
@@ -201,17 +206,77 @@ body > footer {
 nav {
 	display: flex;
 	justify-content: flex-start;
+	width: fit-content;
 }
-	.nav-row {
-		flex-flow: row wrap;
+
+.flex-row {
+	flex-flow: row wrap;
+}
+.flex-column {
+	flex-flow: column;
+}
+
+.nav-bar button,
+.nav-bar a,
+.nav-bar input[type="submit"] {
+    display: inline-block;
+    margin: 0;
+	border: none;
+    border-radius: 0;
+	background-color: var(--grey);
+	cursor: pointer;
+    padding: 0.6em 1em;
+	text-decoration: none;
+	color: var(--black);
+    font-size: inherit;
+    font-weight: bold;
+	transition: transform 0.1s ease-in-out, 
+				box-shadow 0.1s ease-in-out;
+}
+	.nav-bar button:hover,
+	.nav-bar a:hover,
+	.nav-bar input[type="submit"]:hover,
+	.nav-bar .dropdown:hover > button {
+		background-color: var(--lightGrey);
 	}
-	.nav-column {
-		flex-flow: column;
-		width: fit-content;
+	.nav-bar button:active,
+	.nav-bar a:active,
+	.nav-bar input[type="submit"]:active {
+		background-color: var(--indicate-go);
 	}
 
-.nav-bar {}
-.nav-links {}
+.nav-links button,
+.nav-links a,
+.nav-links input[type="submit"] {
+	display: inline-block;
+	margin: 0;
+	border: none;
+	border-radius: 0;
+	background-color: inherit;
+	cursor: pointer;
+	padding: 0.6em 1em;
+	text-decoration: underline;
+	color: var(--black);
+	font-size: inherit;
+	font-weight: bold;
+	transition: transform 0.1s ease-in-out, 
+				box-shadow 0.1s ease-in-out;
+}
+	.nav-links button:hover,
+	.nav-links a:hover,
+	.nav-links input[type="submit"]:hover,
+	.nav-links .dropdown:hover > button {
+		background-color: var(--lightGrey);
+	}
+	.nav-links button:active,
+	.nav-links a:active,
+	.nav-links input[type="submit"]:active {
+		background-color: var(--indicate-go);
+	}
+
+
+
+
 
 
 
@@ -236,7 +301,7 @@ nav {
 		flex-flow: column;
 		box-shadow: -0.2em 0.2em 0 0 #000;
 	}
-		nav .dropdown_content a {
+		nav .dropdown_content > * {
 			background-color: var(--white);
 		}
 
@@ -244,8 +309,14 @@ nav {
 			transform: rotate(90deg);
 		}
 
-
-
+		nav .dropdown_content > *:first-child {
+			border-top-left-radius: var(--box-radius);
+			border-top-right-radius: var(--box-radius);
+		}
+		nav .dropdown_content > *:last-child {
+			border-bottom-left-radius: var(--box-radius);
+			border-bottom-right-radius: var(--box-radius);
+		}
 
 
 
@@ -281,11 +352,11 @@ h2+h3 {
 
 ul,
 ol {
-	margin-inline-start: 30px; /*30px*/
+	margin-inline-start: 1.875em; /*30px*/
 }
 
 li {
-	margin-bottom: 12px; /*12px*/
+	margin-bottom: .75em; /*12px*/
 }
 
 li:last-child {
@@ -294,8 +365,8 @@ li:last-child {
 
 blockquote {
 	color: #828282;
-	padding-left: 19px;
-	border-left: 7px solid rgba(0, 0, 0, 0.1);
+	padding-left: 1.1875em; /*19px*/
+	border-left: .4375em solid rgba(0, 0, 0, 0.1);
 }
 
 
@@ -314,16 +385,16 @@ img,
 .aligncenter,
 .block,
 .alignnone {
-	margin-block-end: 30px; /*30px*/
+	margin-block-end: 1.875em; /*30px*/
 }
 
 ul ul,
 ul ol,
 ol ul,
 ol ol {
-	margin-block-start: 12px; /*12px*/
+	margin-block-start: 0.75em; /*12px*/
 	margin-block-end: 0;
-	margin-inline-start: 19px; /*19px*/
+	margin-inline-start: 1.1875em; /*19px*/
 }
 
 blockquote> :last-child,
@@ -387,11 +458,13 @@ figure {
     padding: 0;
     margin: 1em 2em;
 }
-
-figure figcaption {
-    margin: 0.6em 0.4em;
-    text-align: center;
-}
+	figure  > img {
+		margin: 0;
+	}
+	figure figcaption {
+		margin: 0.6em 0.4em;
+		text-align: center;
+	}
 
 
 
@@ -472,7 +545,6 @@ input[type="submit"] {
     border-radius: var(--box-radius);
 	background-color: var(--grey);
 	cursor: pointer;
-    padding: 0;
     padding: 0.6em;
 	text-decoration: none;
 	color: var(--black);
@@ -481,11 +553,11 @@ input[type="submit"] {
 	transition: transform 0.1s ease-in-out, 
 				box-shadow 0.1s ease-in-out;
 }
-	button:hover,
+	button:hover:not(.nav-bar button):not(.nav-links button),
 	.button:hover,
 	.nav-buttons a:hover,
 	input[type="submit"]:hover,
-	.dropdown:hover > button {
+	.nav-buttons .dropdown:hover > button {
 		transform: translate(0.2em, -0.2em);
 		box-shadow: -0.2em 0.2em 0 0 #000;
 	}
