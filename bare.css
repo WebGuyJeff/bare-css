@@ -136,9 +136,11 @@ html {
 	--indicate-stop: red;
 	--indicate-ready: yellow;
 
-
-
 	--box-radius: 0.4em;
+	--text-padding: 0.6em;
+
+	--anim-duration: 0.15s;
+	--background-light-grad: linear-gradient(#fff5 0%, #0000 100%);
 
 	font-family: arial, sans-serif;
 	font-size: 1rem;
@@ -223,27 +225,45 @@ nav {
     margin: 0;
 	border: none;
     border-radius: 0;
-	background-color: var(--grey);
+	background: var(--background-light-grad), var(--grey);
 	cursor: pointer;
-    padding: 0.6em 1em;
+    padding: var(--text-padding) 1em;
 	text-decoration: none;
 	color: var(--black);
     font-size: inherit;
     font-weight: bold;
-	transition: transform 0.1s ease-in-out, 
-				box-shadow 0.1s ease-in-out;
+	transition: transform var(--anim-duration) ease-in-out, 
+				box-shadow var(--anim-duration) ease-in-out,
+				background var(--anim-duration) ease-in-out;
 }
 	.nav-bar button:hover,
 	.nav-bar a:hover,
 	.nav-bar input[type="submit"]:hover,
 	.nav-bar .dropdown:hover > button {
-		background-color: var(--lightGrey);
+		background: var(--background-light-grad), var(--lightGrey);
 	}
 	.nav-bar button:active,
 	.nav-bar a:active,
 	.nav-bar input[type="submit"]:active {
-		background-color: var(--indicate-go);
+		background: var(--background-light-grad), var(--indicate-go);
 	}
+	.nav-bar.flex-row > *:first-child {
+		border-top-left-radius: var(--box-radius);
+		border-bottom-left-radius: var(--box-radius);
+	}
+	.nav-bar.flex-row > *:last-child {
+		border-top-right-radius: var(--box-radius);
+		border-bottom-right-radius: var(--box-radius);
+	}
+	.nav-bar.flex-column > *:first-child {
+		border-top-left-radius: var(--box-radius);
+		border-top-right-radius: var(--box-radius);
+	}
+	.nav-bar.flex-column > *:last-child {
+		border-bottom-left-radius: var(--box-radius);
+		border-bottom-right-radius: var(--box-radius);
+	}
+
 
 .nav-links button,
 .nav-links a,
@@ -254,24 +274,25 @@ nav {
 	border-radius: 0;
 	background-color: inherit;
 	cursor: pointer;
-	padding: 0.6em 1em;
+	padding: var(--text-padding) 1em;
 	text-decoration: underline;
 	color: var(--black);
 	font-size: inherit;
 	font-weight: bold;
-	transition: transform 0.1s ease-in-out, 
-				box-shadow 0.1s ease-in-out;
+	transition: transform var(--anim-duration) ease-in-out, 
+				box-shadow var(--anim-duration) ease-in-out,
+				background var(--anim-duration) ease-in-out;
 }
 	.nav-links button:hover,
 	.nav-links a:hover,
 	.nav-links input[type="submit"]:hover,
 	.nav-links .dropdown:hover > button {
-		background-color: var(--lightGrey);
+		background: var(--background-light-grad), var(--lightGrey);
 	}
 	.nav-links button:active,
 	.nav-links a:active,
 	.nav-links input[type="submit"]:active {
-		background-color: var(--indicate-go);
+		background: var(--background-light-grad), var(--indicate-go);
 	}
 
 
@@ -284,22 +305,27 @@ nav {
     display: block;
     float: left;
     cursor: pointer;
+	overflow: hidden;
 }
 	.dropdown_content {
-		display: none;
+		display: flex;
 		position: absolute;
+		flex-flow: column;
+		transition: opacity var(--anim-duration) ease-in-out;
+		visibility: hidden;
+		opacity: 0;
 		z-index: 1;
 		margin: 0;
 		border-radius: var(--box-radius);
+		box-shadow: -0.2em 0.2em 0 0 var(--black);
 		background-color: var(--grey);
 		cursor: auto;
 		padding: 0;
 		min-width: 10em;
 	}
 	.dropdown:hover .dropdown_content {
-		display: flex;
-		flex-flow: column;
-		box-shadow: -0.2em 0.2em 0 0 #000;
+		visibility: visible;
+		opacity: 1;
 	}
 		nav .dropdown_content > * {
 			background-color: var(--white);
@@ -462,7 +488,7 @@ figure {
 		margin: 0;
 	}
 	figure figcaption {
-		margin: 0.6em 0.4em;
+		margin: var(--text-padding) 0.4em;
 		text-align: center;
 	}
 
@@ -535,28 +561,41 @@ table {
 /* ---------------------------------------------------------------- ## Forms -*/
 
 
+input {
+	font-size: inherit;
+}
+
+
 button,
 .button,
 .nav-buttons a,
-input[type="submit"] {
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="file"]::before {
     display: inline-block;
     margin: 0.4em;
+	outline: none;
 	border: none;
     border-radius: var(--box-radius);
-	background-color: var(--grey);
+	background: var(--background-light-grad), var(--grey);
 	cursor: pointer;
-    padding: 0.6em;
+    padding: var(--text-padding);
 	text-decoration: none;
 	color: var(--black);
     font-size: inherit;
     font-weight: bold;
-	transition: transform 0.1s ease-in-out, 
-				box-shadow 0.1s ease-in-out;
+	transition: transform var(--anim-duration) ease-in-out, 
+				box-shadow var(--anim-duration) ease-in-out,
+				background var(--anim-duration) ease-in-out;
 }
 	button:hover:not(.nav-bar button):not(.nav-links button),
 	.button:hover,
 	.nav-buttons a:hover,
+	input[type="button"]:hover,
 	input[type="submit"]:hover,
+	input[type="reset"]:hover,
+	input[type="file"]:hover::before,
 	.nav-buttons .dropdown:hover > button {
 		transform: translate(0.2em, -0.2em);
 		box-shadow: -0.2em 0.2em 0 0 #000;
@@ -564,29 +603,74 @@ input[type="submit"] {
 	button:active,
 	.button:active,
 	.nav-buttons a:active,
-	input[type="submit"]:active {
+	input[type="button"]:active,
+	input[type="submit"]:active,
+	input[type="reset"]:active,
+	input[type="file"]:active::before {
 		transform: translate(0, 0);
 		box-shadow: 0 0 0 0 #000;
 	}
+
+
+
+	/* custom file selection button */
+	input[type="file"]::file-selector-button {
+		visibility: hidden;
+	}
+	input[type="file"]::before {
+		content: 'Select file...';
+	}
+
+
+
+
+
+
+	/* all bordered-box inputs */
+	input[type="date"],
+	input[type="datetime-local"],
+	input[type="email"],
+	input[type="month"],
+	input[type="number"],
+	input[type="password"],
+	input[type="search"],
+	input[type="tel"],
+	input[type="text"],
+	textarea,
+	input[type="time"],
+	input[type="url"],
+	input[type="week"] {
+		border-radius: var(--box-radius);
+		padding: var(--text-padding);
+		border: none;
+		box-shadow: inset -1px 1px 3px 0px var(--black);
+		margin-block: 0.2em;
+	}
+
+
+
+
+
+
 
 
 /* ----------------------------------------------------- ## Global Modifiers -*/
 
 
 .indicate-emphasis {
-	background-color: var(--indicate-emphasis);
+	background: var(--background-light-grad), var(--indicate-emphasis);
 	color: var(--white);
 }
 .indicate-go  {
-	background-color: var(--indicate-go);
+	background: var(--background-light-grad), var(--indicate-go);
 	color: var(--white);
 }
 .indicate-stop  {
-	background-color: var(--indicate-stop);
+	background: var(--background-light-grad), var(--indicate-stop);
 	color: var(--white);
 }
 .indicate-ready  {
-	background-color: var(--indicate-ready);
+	background: var(--background-light-grad), var(--indicate-ready);
 	color: var(--black);
 }
 
@@ -595,5 +679,6 @@ input[type="submit"] {
 
 
 .arrow-down {
-	transition: transform 0.1s ease-in-out;
+	transition: transform var(--anim-duration) ease-in-out,
+				transform var(--anim-duration) ease-in-out;
 }
