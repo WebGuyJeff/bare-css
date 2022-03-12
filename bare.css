@@ -13,9 +13,15 @@
 
 ~o Index o~
 
-Root
+## Root
 	<html>
 	<body>
+## Base HTML Tags
+## Components
+## Global Modifiers
+
+
+
 Content sectioning
 	<address>
 	<article>
@@ -115,15 +121,14 @@ Interactive elements
 	<dialog>
 	<summary>
 
-Global Modifiers
-	Indicate Colours
-Icons
-	Arrow Down
+
 
 
 */
 
-/* ----------------------------------------------------------------- ## Root -*/
+
+/* ================================================================== ## Root */
+
 
 html {
 	--black: #262626;
@@ -135,6 +140,8 @@ html {
 	--indicate-go: green;
 	--indicate-stop: red;
 	--indicate-ready: yellow;
+
+	--link: rgb(127, 189, 247);
 
 	--box-radius: 0.4em;
 	--text-padding: 0.6em;
@@ -163,7 +170,8 @@ body {
 }
 
 
-/* --------------------------------------------------- ## Content sectioning -*/
+/* ======================================================== ## Base HTML Tags */
+
 
 header,
 footer,
@@ -176,27 +184,6 @@ header {
 footer {
 	margin-top: 1.5em;
 }
-
-
-@media screen and (min-width: 40rem) {
-	body > header,
-	body > main,
-	body > footer {
-		display: flex;
-		max-width: 100%;
-		justify-content: center;
-	}
-}
-.container {
-	flex: 1 40em;
-	max-width: 40em;
-	padding: 1.5em;
-}
-
-img {
-	max-width: 100%;
-}
-
 body > header {
 	border-bottom: solid 0.4em var(--black);
 }
@@ -204,147 +191,29 @@ body > footer {
 	border-top: solid 0.4em var(--black);
 }
 
+img {
+	max-width: 100%;
+}
+
+a {
+	color: inherit;
+	background-image: linear-gradient(to right, var(--indicate-go) 0%, var(--link) 0);
+	background-size: 100% 20%;
+	background-position: 0 100%;
+	background-repeat: no-repeat;
+	text-decoration: none;
+	transition: background-size .4s ease;
+}
+	a:hover {
+		background-size: 100% 100%;
+		cursor: pointer;
+	}
 
 nav {
 	display: flex;
 	justify-content: flex-start;
 	width: fit-content;
 }
-
-.flex-row {
-	flex-flow: row wrap;
-}
-.flex-column {
-	flex-flow: column;
-}
-
-.nav-bar button,
-.nav-bar a,
-.nav-bar input[type="submit"] {
-    display: inline-block;
-    margin: 0;
-	border: none;
-    border-radius: 0;
-	background: var(--background-light-grad), var(--grey);
-	cursor: pointer;
-    padding: var(--text-padding) 1em;
-	text-decoration: none;
-	color: var(--black);
-    font-size: inherit;
-    font-weight: bold;
-	transition: transform var(--anim-duration) ease-in-out, 
-				box-shadow var(--anim-duration) ease-in-out,
-				background var(--anim-duration) ease-in-out;
-}
-	.nav-bar button:hover,
-	.nav-bar a:hover,
-	.nav-bar input[type="submit"]:hover,
-	.nav-bar .dropdown:hover > button {
-		background: var(--background-light-grad), var(--lightGrey);
-	}
-	.nav-bar button:active,
-	.nav-bar a:active,
-	.nav-bar input[type="submit"]:active {
-		background: var(--background-light-grad), var(--indicate-go);
-	}
-	.nav-bar.flex-row > *:first-child {
-		border-top-left-radius: var(--box-radius);
-		border-bottom-left-radius: var(--box-radius);
-	}
-	.nav-bar.flex-row > *:last-child {
-		border-top-right-radius: var(--box-radius);
-		border-bottom-right-radius: var(--box-radius);
-	}
-	.nav-bar.flex-column > *:first-child {
-		border-top-left-radius: var(--box-radius);
-		border-top-right-radius: var(--box-radius);
-	}
-	.nav-bar.flex-column > *:last-child {
-		border-bottom-left-radius: var(--box-radius);
-		border-bottom-right-radius: var(--box-radius);
-	}
-
-
-.nav-links button,
-.nav-links a,
-.nav-links input[type="submit"] {
-	display: inline-block;
-	margin: 0;
-	border: none;
-	border-radius: 0;
-	background-color: inherit;
-	cursor: pointer;
-	padding: var(--text-padding) 1em;
-	text-decoration: underline;
-	color: var(--black);
-	font-size: inherit;
-	font-weight: bold;
-	transition: transform var(--anim-duration) ease-in-out, 
-				box-shadow var(--anim-duration) ease-in-out,
-				background var(--anim-duration) ease-in-out;
-}
-	.nav-links button:hover,
-	.nav-links a:hover,
-	.nav-links input[type="submit"]:hover,
-	.nav-links .dropdown:hover > button {
-		background: var(--background-light-grad), var(--lightGrey);
-	}
-	.nav-links button:active,
-	.nav-links a:active,
-	.nav-links input[type="submit"]:active {
-		background: var(--background-light-grad), var(--indicate-go);
-	}
-
-
-
-
-
-
-
-.dropdown {
-    display: block;
-    float: left;
-    cursor: pointer;
-	overflow: hidden;
-}
-	.dropdown_content {
-		display: flex;
-		position: absolute;
-		flex-flow: column;
-		transition: opacity var(--anim-duration) ease-in-out;
-		visibility: hidden;
-		opacity: 0;
-		z-index: 1;
-		margin: 0;
-		border-radius: var(--box-radius);
-		box-shadow: -0.2em 0.2em 0 0 var(--black);
-		background-color: var(--grey);
-		cursor: auto;
-		padding: 0;
-		min-width: 10em;
-	}
-	.dropdown:hover .dropdown_content {
-		visibility: visible;
-		opacity: 1;
-	}
-		nav .dropdown_content > * {
-			background-color: var(--white);
-		}
-
-		.dropdown:hover .arrow-down {
-			transform: rotate(90deg);
-		}
-
-		nav .dropdown_content > *:first-child {
-			border-top-left-radius: var(--box-radius);
-			border-top-right-radius: var(--box-radius);
-		}
-		nav .dropdown_content > *:last-child {
-			border-bottom-left-radius: var(--box-radius);
-			border-bottom-right-radius: var(--box-radius);
-		}
-
-
 
 h1,h2,h3,h4,h5,h6 {
 	line-height: 1.6;
@@ -395,22 +264,12 @@ blockquote {
 	border-left: .4375em solid rgba(0, 0, 0, 0.1);
 }
 
-
-
 p,
 ul,
 ol,
 blockquote,
 pre,
-img,
-.left,
-.alignleft,
-.right,
-.alignright,
-.center,
-.aligncenter,
-.block,
-.alignnone {
+img {
 	margin-block-end: 1.875em; /*30px*/
 }
 
@@ -423,9 +282,7 @@ ol ol {
 	margin-inline-start: 1.1875em; /*19px*/
 }
 
-blockquote> :last-child,
-.left> :last-child,
-.right> :last-child {
+blockquote> :last-child {
 	margin-block-end: 0;
 }
 
@@ -433,11 +290,6 @@ sub,
 sup {
 	color: #828282;
 }
-
-
-
-
-
 
 pre {
     border-radius: var(--box-radius);
@@ -471,12 +323,6 @@ kbd {
     color: var(--black);
 }
 
-
-
-
-
-
-
 figure {
     background-color: var(--grey);
     border-radius: var(--box-radius);
@@ -491,15 +337,6 @@ figure {
 		margin: var(--text-padding) 0.4em;
 		text-align: center;
 	}
-
-
-
-
-
-
-
-
-
 
 
 /* --------------------------------------------------------------- ## Tables -*/
@@ -567,8 +404,6 @@ input {
 
 
 button,
-.button,
-.nav-buttons a,
 input[type="button"],
 input[type="submit"],
 input[type="reset"],
@@ -589,20 +424,15 @@ input[type="file"]::before {
 				box-shadow var(--anim-duration) ease-in-out,
 				background var(--anim-duration) ease-in-out;
 }
-	button:hover:not(.nav-bar button):not(.nav-links button),
-	.button:hover,
-	.nav-buttons a:hover,
+	button:hover,
 	input[type="button"]:hover,
 	input[type="submit"]:hover,
 	input[type="reset"]:hover,
-	input[type="file"]:hover::before,
-	.nav-buttons .dropdown:hover > button {
+	input[type="file"]:hover::before {
 		transform: translate(0.2em, -0.2em);
 		box-shadow: -0.2em 0.2em 0 0 #000;
 	}
 	button:active,
-	.button:active,
-	.nav-buttons a:active,
 	input[type="button"]:active,
 	input[type="submit"]:active,
 	input[type="reset"]:active,
@@ -613,48 +443,280 @@ input[type="file"]::before {
 
 
 
-	/* custom file selection button */
-	input[type="file"]::file-selector-button {
+/* custom file selection button */
+input[type="file"]::file-selector-button {
+	visibility: hidden;
+}
+input[type="file"]::before {
+	content: 'Select file...';
+}
+
+
+/* all bordered-box inputs */
+input[type="date"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+textarea,
+input[type="time"],
+input[type="url"],
+input[type="week"] {
+	border-radius: var(--box-radius);
+	padding: var(--text-padding);
+	border: none;
+	box-shadow: inset -1px 1px 3px 0px var(--black);
+	margin-block: 0.2em;
+}
+
+
+/* ================================================================ ## Layout */
+
+
+@media screen and (min-width: 40rem) {
+	body > header,
+	body > main,
+	body > footer {
+		display: flex;
+		max-width: 100%;
+		justify-content: center;
+	}
+}
+.container {
+	flex: 1 40em;
+	max-width: 40em;
+	padding: 1.5em;
+}
+
+
+.flex-row {
+	display: flex;
+	flex-flow: row wrap;
+}
+.flex-column {
+	display: flex;
+	flex-flow: column;
+}
+
+
+/* ============================================================ ## Components */
+
+/* ------------------------------------------------------------- ### Dropdown */
+
+
+.dropdown {
+    display: block;
+    float: left;
+    cursor: pointer;
+	overflow: hidden;
+	padding: 0;
+}
+	nav > .dropdown_toggle {
+		margin: 0;
+		background: #0000;
+	}
+	.dropdown_content {
+		display: flex;
+		position: absolute;
+		flex-flow: column;
+		transition: opacity var(--anim-duration) ease-in-out;
 		visibility: hidden;
-	}
-	input[type="file"]::before {
-		content: 'Select file...';
-	}
-
-
-
-
-
-
-	/* all bordered-box inputs */
-	input[type="date"],
-	input[type="datetime-local"],
-	input[type="email"],
-	input[type="month"],
-	input[type="number"],
-	input[type="password"],
-	input[type="search"],
-	input[type="tel"],
-	input[type="text"],
-	textarea,
-	input[type="time"],
-	input[type="url"],
-	input[type="week"] {
+		opacity: 0;
+		z-index: 1;
+		margin: 0;
 		border-radius: var(--box-radius);
-		padding: var(--text-padding);
+		box-shadow: -0.2em 0.2em 0 0 var(--black);
+		background-color: var(--white);
+		cursor: auto;
+		padding: 0;
+		min-width: 10em;
+	}
+		.dropdown_item {
+			background-color: var(--white);
+			padding: var(--text-padding);
+			background: unset;
+		}
+		.dropdown_item:hover {
+			background: var(--background-light-grad), var(--lightGrey);
+		}
+		.dropdown_item:active {
+			background: var(--background-light-grad), var(--indicate-go);
+		}
+
+.dropdown:hover .arrow-down {
+	transform: rotate(90deg);
+}
+.dropdown:hover .dropdown_content {
+	visibility: visible;
+	opacity: 1;
+}
+	.dropdown_content > *:first-child {
+		border-top-left-radius: var(--box-radius);
+		border-top-right-radius: var(--box-radius);
+	}
+	.dropdown_content > *:last-child {
+		border-bottom-left-radius: var(--box-radius);
+		border-bottom-right-radius: var(--box-radius);
+	}
+
+
+/* ------------------------------------------------------------------ ### Nav */
+
+
+.nav {
+	align-items: center;
+}
+	.nav_item {
+		display: inline-block;
+		outline: none;
 		border: none;
-		box-shadow: inset -1px 1px 3px 0px var(--black);
-		margin-block: 0.2em;
+		cursor: pointer;
+		margin: var(--text-padding);
+		text-decoration: none;
+		color: var(--black);
+		font-size: inherit;
+		font-weight: bold;
+		transition: transform var(--anim-duration) ease-in-out,
+					box-shadow var(--anim-duration) ease-in-out,
+					background var(--anim-duration) ease-in-out;	
+	}
+
+.nav-buttons > .nav_item {
+	display: inline-block;
+	margin: 0.4em;
+	outline: none;
+	border: none;
+	border-radius: var(--box-radius);
+	background: var(--background-light-grad), var(--grey);
+	cursor: pointer;
+	padding: var(--text-padding);
+	text-decoration: none;
+	color: var(--black);
+	font-size: inherit;
+	font-weight: bold;
+	transition: transform var(--anim-duration) ease-in-out, 
+				box-shadow var(--anim-duration) ease-in-out,
+				background var(--anim-duration) ease-in-out;
+}
+	.nav-buttons > .nav_item:hover {
+		background: var(--background-light-grad), var(--lightGrey);
+	}
+	.nav-bar > .nav_item:active {
+		background: var(--background-light-grad), var(--indicate-go);
 	}
 
 
 
 
+.nav-bar > .nav_item {
+	display: inline-block;
+	margin: 0;
+	border: none;
+	border-radius: 0;
+	background: var(--background-light-grad), var(--grey);
+	cursor: pointer;
+	padding: var(--text-padding) 1em;
+	text-decoration: none;
+	color: var(--black);
+	font-size: inherit;
+	font-weight: bold;
+	transition: transform var(--anim-duration) ease-in-out, 
+				box-shadow var(--anim-duration) ease-in-out,
+				background var(--anim-duration) ease-in-out;
+}
+	.nav-bar > .nav_item:hover {
+		background: var(--background-light-grad), var(--lightGrey);
+	}
+	.nav-bar > .nav_item:active {
+		background: var(--background-light-grad), var(--indicate-go);
+	}
+	.nav-bar.flex-row > .nav_item:first-child {
+		border-top-left-radius: var(--box-radius);
+		border-bottom-left-radius: var(--box-radius);
+	}
+	.nav-bar.flex-row > .nav_item:last-child {
+		border-top-right-radius: var(--box-radius);
+		border-bottom-right-radius: var(--box-radius);
+	}
+	.nav-bar.flex-column > .nav_item:first-child {
+		border-top-left-radius: var(--box-radius);
+		border-top-right-radius: var(--box-radius);
+	}
+	.nav-bar.flex-column > .nav_item:last-child {
+		border-bottom-left-radius: var(--box-radius);
+		border-bottom-right-radius: var(--box-radius);
+	}
 
 
+.nav-links > .nav_item {
+	display: inline-block;
+	margin: 0;
+	border: none;
+	border-radius: 0;
+	background-color: inherit;
+	cursor: pointer;
+	padding: 0;
+	margin: var(--text-padding) 1em;
+	text-decoration: underline;
+	color: var(--black);
+	font-size: inherit;
+	font-weight: bold;
+	transition: transform var(--anim-duration) ease-in-out, 
+				box-shadow var(--anim-duration) ease-in-out,
+				background var(--anim-duration) ease-in-out;
+}
+	.nav-links > .nav_item:hover {
+		background: var(--background-light-grad), var(--lightGrey);
+	}
+	.nav-links > .nav_item:active {
+		background: var(--background-light-grad), var(--indicate-go);
+	}
 
 
-/* ----------------------------------------------------- ## Global Modifiers -*/
+/* -------------------------------------------------------------- ### Buttons */
+
+
+.button {
+	display: inline-block;
+    margin: 0.4em;
+	outline: none;
+	border: none;
+    border-radius: var(--box-radius);
+	background: var(--background-light-grad), var(--grey);
+	cursor: pointer;
+    padding: var(--text-padding);
+	text-decoration: none;
+	color: var(--black);
+    font-size: inherit;
+    font-weight: bold;
+	transition: transform var(--anim-duration) ease-in-out, 
+				box-shadow var(--anim-duration) ease-in-out,
+				background var(--anim-duration) ease-in-out;
+}
+	.button:hover {
+			transform: translate(0.2em, -0.2em);
+			box-shadow: -0.2em 0.2em 0 0 #000;
+	}
+	.button:active {
+			transform: translate(0, 0);
+			box-shadow: 0 0 0 0 #000;
+	}
+
+
+/* ---------------------------------------------------------------- ## Icons -*/
+
+
+.arrow-down {
+	transition: transform var(--anim-duration) ease-in-out,
+				transform var(--anim-duration) ease-in-out;
+}
+
+
+/* ====================================================== ## Global Modifiers */
 
 
 .indicate-emphasis {
@@ -672,13 +734,4 @@ input[type="file"]::before {
 .indicate-ready  {
 	background: var(--background-light-grad), var(--indicate-ready);
 	color: var(--black);
-}
-
-
-/* ---------------------------------------------------------------- ## Icons -*/
-
-
-.arrow-down {
-	transition: transform var(--anim-duration) ease-in-out,
-				transform var(--anim-duration) ease-in-out;
 }
