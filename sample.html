@@ -23,13 +23,11 @@
 				<a class="nav_item" href="#" title="Lists">Lists</a>
 				<a class="nav_item" href="#" title="Menu">Contact</a>
 				<a class="nav_item" href="#" title="Careers">Careers</a>
-				<div class="nav_item dropdown">
-					<button class="dropdown_toggle" title="More">
-						More
-						<svg class="arrow-down" height="8" width="12">
-							<polygon fill="currentColor" stroke="currentColor" stroke-width="1px" stroke-linejoin="round" points="0,0 6,8 12,0" />
-						</svg>
-					</button>     
+				<div class="nav_item dropdown dropdown-hover">
+					<span class="dropdown_toggle" title="More">
+						Dropdown
+						<span class="dropdown_toggleIcon icon_arrow-down"></span>
+					</span>     
 					<div class="dropdown_content">
 						<a class="dropdown_item" href="#">Merchandise</a>
 						<a class="dropdown_item" href="#">Extras</a>
@@ -44,13 +42,11 @@
 				<a class="nav_item" href="#" title="Lists">Lists</a>
 				<a class="nav_item" href="#" title="Menu">Contact</a>
 				<a class="nav_item" href="#" title="Careers">Careers</a>
-				<div class="dropdown">
-					<button class="nav_item dropdown_toggle" title="More">
-						More
-						<svg class="arrow-down" height="8" width="12">
-							<polygon fill="currentColor" stroke="currentColor" stroke-width="1px" stroke-linejoin="round" points="0,0 6,8 12,0" />
-						</svg>
-					</button>     
+				<div class="nav_item dropdown dropdown-hover">
+					<span class="dropdown_toggle" title="More">
+						Dropdown
+						<span class="dropdown_toggleIcon icon_arrow-down"></span>
+					</span>     
 					<div class="dropdown_content">
 						<a class="dropdown_item" href="#">Merchandise</a>
 						<a class="dropdown_item" href="#">Extras</a>
@@ -65,16 +61,26 @@
 				<a class="nav_item" href="#" title="Lists">Lists</a>
 				<a class="nav_item" href="#" title="Menu">Contact</a>
 				<a class="nav_item" href="#" title="Careers">Careers</a>
-				<div class="dropdown nav_item">
-					<button class="dropdown_toggle" title="More">
-						More
-						<svg class="arrow-down" height="8" width="12">
-							<polygon fill="currentColor" stroke="currentColor" stroke-width="1px" stroke-linejoin="round" points="0,0 6,8 12,0" />
-						</svg>
-					</button>     
+				<div class="nav_item dropdown dropdown-up dropdown-hover">
+					<span class="dropdown_toggle" title="More">
+						Dropup
+						<span class="dropdown_toggleIcon icon_arrow-up"></span>
+					</span>     
 					<div class="dropdown_content">
 						<a class="dropdown_item" href="#">Merchandise</a>
 						<a class="dropdown_item" href="#">Extras</a>
+						<div class="dropdown_item dropdown dropdown-up dropdown-touch">
+							<label for="dropdown_checkbox" class="dropdown_toggle" title="More">
+								Dropup
+								<span class="dropdown_toggleIcon icon_arrow-up"></span>
+							</label>
+							<input id="dropdown_checkbox" class="dropdown_checkbox" type="checkbox">
+							<div class="dropdown_content">
+								<a class="dropdown_item" href="#">Merchandise</a>
+								<a class="dropdown_item" href="#">Extras</a>
+								<a class="dropdown_item" href="#">Media</a>
+							</div>
+						</div>
 						<a class="dropdown_item" href="#">Media</a>
 					</div>
 				</div>
