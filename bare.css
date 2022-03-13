@@ -591,7 +591,7 @@ input[type="week"] {
 .dropdown-touch > .dropdown_checkbox:checked + .dropdown_toggleIcon {
 	transform: rotate(90deg);
 }
-	.dropdown-touch:hover > .dropdown_checkbox:checked + .dropdown_content {
+	.dropdown-touch .dropdown_checkbox:checked + .dropdown_content {
 		visibility: visible;
 		opacity: 1;
 	}
@@ -600,7 +600,7 @@ input[type="week"] {
 	bottom: 100%;
 	top: unset;
 }
-	.dropdown-up:hover > .dropdown_toggle > .dropdown_toggleIcon {
+	.dropdown-touch:hover > .dropdown_toggle > .dropdown_toggleIcon {
 		transform: rotate(-90deg);
 	}
 
