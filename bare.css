@@ -124,6 +124,27 @@ Interactive elements
 
 
 
+~o Media Queries o~
+~~~~~~~~oOo~~~~~~~~
+MAX
+@media (max-width: 450px) {}
+@media (max-width: 599px) {}
+@media (max-width: 767px) {}
+MIN
+@media (min-width: 600px) {}
+@media (min-width: 768px) {}
+@media (min-width: 1024px) {}
+@media (min-width: 1280px) {}
+@media (min-width: 1536px) {}
+@media (min-width: 1921px) {}
+RANGE
+@media (min-width: 451px) and (max-width: 767px) {}
+@media (min-width: 768px) and (max-width: 1023px) {}
+@media (min-width: 1024px) and (max-width: 1279px) {}
+@media (min-width: 1280px) and (max-width: 1535px) {}
+@media (min-width: 1536px) and (max-width: 1920px) {}
+
+
 */
 
 
